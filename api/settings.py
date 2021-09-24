@@ -181,3 +181,8 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
     ],
 }
+
+# Points to the custom serializers for dj_rest_auth
+REST_AUTH_SERIALIZERS = {
+    "PASSWORD_RESET_SERIALIZER": "users.serializers.CustomPasswordResetSerializer"
+}

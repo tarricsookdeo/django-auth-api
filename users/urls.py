@@ -1,5 +1,4 @@
 from dj_rest_auth.registration.views import ConfirmEmailView, VerifyEmailView
-from dj_rest_auth.views import PasswordResetConfirmView, PasswordResetView
 from django.urls import include, path
 from django.urls.conf import re_path
 from django.views.generic.base import TemplateView
