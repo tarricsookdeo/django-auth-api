@@ -156,17 +156,23 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 # Django All Auth config
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-AUTHENTICATION_BACKENDS = (
-    "django.contrib.auth.backends.ModelBackend",
-    "allauth.account.auth_backends.AuthenticationBackend",
-)
 SITE_ID = 1
+AUTHENTICATION_BACKENDS = [
+    'allauth.account.auth_backends.AuthenticationBackend',
+    'django.contrib.auth.backends.ModelBackend',
+]
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_USERNAME_REQUIRED = False
-ACCOUNT_SESSION_REMEMBER = True
-ACCOUNT_AUTHENTICATION_METHOD = 'email'
-ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_CONFIRM_EMAIL_ON_GET = True
+LOGIN_URL = 'http://localhost:8000/users/auth/login'
+EMAIL_BACKEND = os.environ.get('EMAIL_BACKEND')
+EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS')
+EMAIL_HOST = os.environ.get('EMAIL_HOST')
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = int(os.environ.get('EMAIL_PORT'))
 
 # Rest Framework config
 REST_FRAMEWORK = {
