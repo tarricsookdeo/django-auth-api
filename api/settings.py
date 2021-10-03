@@ -166,6 +166,7 @@ ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_CONFIRM_EMAIL_ON_GET = True
+ACCOUNT_ADAPTER = 'users.adapters.CustomAcountAdapter'
 LOGIN_URL = 'http://localhost:8000/api/users/auth/login'
 EMAIL_BACKEND = os.environ.get('EMAIL_BACKEND')
 EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS')
