@@ -15,8 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from django.views.generic.base import TemplateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('password-reset-confirm/<uidb64>/<token>/',
+         TemplateView.as_view(), name='password_reset_confirm'),
     path('api/users/auth/', include('users.urls')),
 ]

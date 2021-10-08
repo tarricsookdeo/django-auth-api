@@ -4,8 +4,6 @@ from django.urls.conf import re_path
 from django.views.generic.base import TemplateView
 
 urlpatterns = [
-    path('password-reset-confirm/<uidb64>/<token>/',
-         TemplateView.as_view(), name='password_reset_confirm'),
     path('account-confirm-email/<str:key>/', ConfirmEmailView.as_view()),
     path('', include('dj_rest_auth.urls')),
     path('register/', include('dj_rest_auth.registration.urls')),
